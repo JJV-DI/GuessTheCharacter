@@ -78,6 +78,7 @@ public class MainAppController implements Initializable {
         this.personajeActual = Main.personajes.getFirst();
         lblSoluciónCorrecta.setVisible(false);
         lblNombres.setVisible(false);
+        lblNombres.setManaged(false);
         contadorGTCRacha.setContador(0);
         guessFieldGTC.setPalabras(Main.nombresDisponibles);
         rellenarDatosPersonaje();
@@ -99,17 +100,19 @@ public class MainAppController implements Initializable {
     
     private void inicializarGuessFieldGTC() {
         guessFieldGTC.getButton().setOnAction(event -> {
-            if (comprobarNombreCorrecto(guessFieldGTC.getTextField().getText())) {
-                ganarRonda();
-            } else {
-                if (contadorGTCVidas.getContador() == 1) {
-                    perderRonda();
+            if (!guessFieldGTC.getTextField().getText().isEmpty()) {
+                if (comprobarNombreCorrecto(guessFieldGTC.getTextField().getText())) {
+                    ganarRonda();
                 } else {
-                    fallarIntento();
+                    if (contadorGTCVidas.getContador() == 1) {
+                        perderRonda();
+                    } else {
+                        fallarIntento();
+                    }
+                    añadirFallo();
                 }
-                añadirFallo();
+                guessFieldGTC.getTextField().clear();
             }
-            guessFieldGTC.getTextField().clear();
         });
     }
     
@@ -117,7 +120,7 @@ public class MainAppController implements Initializable {
         boolean checkNombre = intento.equalsIgnoreCase(personajeActual.getName());
         boolean checkAlias = personajeActual.getAliasesList().stream()
                                 .map(String::toLowerCase)
-                                .anyMatch(alias -> alias.equals(intento.toLowerCase()));
+                                .anyMatch(alias -> alias.equalsIgnoreCase(intento.toLowerCase()));
         return checkNombre || checkAlias;
     }
     
@@ -193,8 +196,10 @@ public class MainAppController implements Initializable {
     }
     
     private void finDeRonda() {
+        guessFieldGTC.setDisable(true);
         imgGTC.setBlurFactor(1);
         lblNombres.setVisible(true);
+        lblNombres.setManaged(true);
         btnRendirse.setDisable(true);
         btnSiguiente.setDisable(false);
         if (contadorGTCVidas.getContador() >= 15) {
@@ -209,6 +214,8 @@ public class MainAppController implements Initializable {
     }
     
     private void iniciarSiguienteRonda() {
+        guessFieldGTC.setDisable(false);
+        guessListGTC.getChildren().clear();
         contadorGTCVidas.setContador(20);
         lblFallos.setText(String.valueOf(0));
         lblNombres.setVisible(false);
