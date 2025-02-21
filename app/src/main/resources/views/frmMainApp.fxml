@@ -22,7 +22,6 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <GridPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/syle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuessTheCharacter.controllers.MainAppController">
    <columnConstraints>
       <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
@@ -44,7 +43,7 @@
                               <Font name="Arial Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblVidasRestantesPista" styleClass="text-color" text="10">
+                        <Label fx:id="lblVidasRestantesPista" styleClass="text-color" text="5">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
@@ -81,14 +80,14 @@
                               <Font name="Arial Bold" size="18.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblFallos" layoutX="10.0" layoutY="10.0" styleClass="text-color" text="10">
+                        <Label fx:id="lblFallos" layoutX="10.0" layoutY="10.0" styleClass="text-color" text="0">
                            <font>
                               <Font name="Arial Bold" size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </HBox>
-                  <GuessedListGTC fx:id="guessListGTC" />
+                  <GuessedListGTC fx:id="guessListGTC" styleClass="guessedListGTC" />
                </children>
                <styleClass>
                   <String fx:value="color-rojo-claro" />
@@ -105,7 +104,7 @@
          <children>
             <HBox alignment="CENTER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#btnRendirsePulsado" text="Rendirse">
+                  <Button fx:id="btnRendirse" mnemonicParsing="false" onAction="#btnRendirsePulsado" text="Rendirse">
                      <styleClass>
                         <String fx:value="btn-rendire" />
                         <String fx:value="sombra-container" />

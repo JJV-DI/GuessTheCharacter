@@ -50,6 +50,13 @@
     -fx-padding: 0 10 0 5;
 }
 
+.guessedListGTC .label{
+    -fx-text-fill: #efe2bf;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-padding: 0 10 0 5;
+}
+
 .borde-redondo {
     -fx-background-radius: 4;
 }
