@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import ComponentesGTC.ContadorGTC?>
+<?import ComponentesGTC.GuessFieldGTC?>
+<?import ComponentesGTC.GuessedListGTC?>
+<?import ComponentesGTC.HintButtonGTC?>
+<?import ComponentesGTC.ImageViewGTC?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<GridPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../style/syle.css" xmlns="http://javafx.com/javafx/23" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GuessTheCharacter.controllers.MainAppController">
+   <columnConstraints>
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+   </columnConstraints>
+   <rowConstraints>
+      <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+   </rowConstraints>
+   <children>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="gradiente-rojo-izq-der">
+         <children>
+            <VBox spacing="10.0" style="-fx-background-color: #3c515d;">
+               <children>
+                  <HBox spacing="10.0">
+                     <children>
+                        <Label styleClass="text-color" text="Fallos hasta la siguiente pista:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblVidasRestantesPista" styleClass="text-color" text="10">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <HintButtonGTC fx:id="hintButtonGTC" nombreBoton="" styleClass="hintButtonGTC" textoPista="¡Tendrás que desbloquearla!">
+                     <pistaIcono>
+                        <Image url="@../media/lupa.png" />
+                     </pistaIcono>
+                  </HintButtonGTC>
+               </children>
+               <padding>
+                  <Insets bottom="25.0" left="25.0" right="25.0" top="25.0" />
+               </padding>
+               <styleClass>
+                  <String fx:value="sombra-container" />
+                  <String fx:value="borde-redondo" />
+               </styleClass>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="25.0" right="25.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" styleClass="gradiente-rojo-der-izq" GridPane.columnIndex="2">
+         <children>
+            <VBox maxHeight="680.0" style="-fx-background-color: #3c515d;">
+               <children>
+                  <HBox spacing="5.0">
+                     <children>
+                        <Label styleClass="text-color" text="Intentos fallidos:">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblFallos" layoutX="10.0" layoutY="10.0" styleClass="text-color" text="10">
+                           <font>
+                              <Font name="Arial Bold" size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                  </HBox>
+                  <GuessedListGTC fx:id="guessListGTC" />
+               </children>
+               <styleClass>
+                  <String fx:value="color-rojo-claro" />
+                  <String fx:value="sombra-container" />
+                  <String fx:value="borde-redondo" />
+               </styleClass>
+            </VBox>
+         </children>
+         <padding>
+            <Insets left="25.0" right="25.0" />
+         </padding>
+      </VBox>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" GridPane.columnIndex="1">
+         <children>
+            <HBox alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" onAction="#btnRendirsePulsado" text="Rendirse">
+                     <styleClass>
+                        <String fx:value="btn-rendire" />
+                        <String fx:value="sombra-container" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../media/surrender.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Pane prefWidth="50.0" />
+                  <Button fx:id="btnSiguiente" disable="true" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" onAction="#btnSiguientePulsado" text="Siguiente">
+                     <styleClass>
+                        <String fx:value="btn-siguiente" />
+                        <String fx:value="sombra-container" />
+                     </styleClass>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../media/next.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+               </children>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
+            <Label styleClass="title" text="Guess The Character">
+               <font>
+                  <Font name="Arial Black" size="30.0" />
+               </font>
+               <VBox.margin>
+                  <Insets top="40.0" />
+               </VBox.margin>
+            </Label>
+            <Label fx:id="lblSoluciónCorrecta" layoutX="50.0" layoutY="131.0" text="¡Correcto!">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER" maxWidth="-Infinity" minHeight="-Infinity" prefHeight="70.0" prefWidth="200.0" style="-fx-background-color: #a7c686;">
+               <children>
+                  <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefWidth="150.0">
+                     <children>
+                        <Label text="Vidas: ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ContadorGTC fx:id="contadorGTCVidas" alignment="CENTER_RIGHT" contador="20" maxHeight="50.0" prefWidth="75.0" type="vidas">
+                           <icon>
+                              <Image url="@../media/heart.png" />
+                           </icon>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ContadorGTC>
+                     </children>
+                  </HBox>
+                  <HBox alignment="CENTER_RIGHT" maxWidth="-Infinity" prefWidth="150.0">
+                     <children>
+                        <Label text="Racha: ">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <ContadorGTC fx:id="contadorGTCRacha" alignment="CENTER_RIGHT" prefWidth="75.0" type="racha">
+                           <icon>
+                              <Image url="@../media/fire.png" />
+                           </icon>
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </ContadorGTC>
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+            <StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity">
+               <children>
+                  <ImageViewGTC fx:id="imgGTC" blurFactor="40.0" fitHeight="220.0" fitWidth="220.0">
+                     <image>
+                        <Image url="@../media/jhin.png" />
+                     </image>
+                  </ImageViewGTC>
+               </children>
+            </StackPane>
+            <Label fx:id="lblNombres" alignment="CENTER" maxWidth="500.0" minWidth="-Infinity" text="exNombres" wrapText="true">
+               <font>
+                  <Font name="Arial Black" size="18.0" />
+               </font>
+            </Label>
+            <GuessFieldGTC fx:id="guessFieldGTC" alignment="TOP_CENTER" nombreBoton="Probar" styleClass="guessFieldGTC" />
+         </children>
+         <styleClass>
+            <String fx:value="sombra-container" />
+            <String fx:value="color-blanco-palo" />
+         </styleClass>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </VBox>
+   </children>
+</GridPane>

@@ -1,0 +1,123 @@
+.color-rojo-oscuro {
+    -fx-background-color: #a76378;
+}
+
+.gradiente-rojo-izq-der {
+    -fx-background-color: linear-gradient(to right, #60e1bf, #40957f);
+}
+
+.gradiente-rojo-der-izq {
+    -fx-background-color: linear-gradient(to right, #40957f, #60e1bf);
+}
+
+.color-rojo-claro {
+    -fx-background-color: #ef8184;
+}
+
+.color-naranja {
+    -fx-background-color: #f5a489;
+}
+
+.color-amarillo {
+    -fx-background-color: #FFCE6F;
+}
+
+.color-blanco-palo {
+    -fx-background-color: #efe2bf;
+}
+
+.color-verde {
+    -fx-background-color: #a8c896;
+}
+
+.sombra-container {
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0, 0, 5);
+    -fx-padding: 10;
+}
+
+.title {
+    -fx-text-fill: #383838;
+}
+
+.text-color {
+    -fx-text-fill: #efe2bf;
+}
+
+.label-contador {
+    -fx-text-fill: #282828;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-padding: 0 10 0 5;
+}
+
+.borde-redondo {
+    -fx-background-radius: 4;
+}
+
+.hintButtonGTC .label {
+    -fx-text-fill: #282828;
+    -fx-font-weight: bold;
+    -fx-font-size: 18;
+    -fx-padding: 5 0 10 10;
+    -fx-text-fill: #efe2bf;
+}
+
+.hintButtonGTC .button {
+    -fx-background-color: #c8eeb2;
+    -fx-background-radius: 50;
+    -fx-min-width: 35px;
+    -fx-pref-width: 35px;
+    -fx-max-width: 35px;
+    -fx-min-height: 35px;
+    -fx-pref-height: 35px;
+    -fx-max-height: 35px;
+}
+
+.hintButtonGTC .image-view {
+    -fx-fit-width: 30;
+    -fx-fit-height: 30;
+    
+}
+
+.guessFieldGTC .text-field {
+    -fx-border-color: #282828 transparent #282828 #282828;
+    -fx-border-width: 2;
+    -fx-background-color: #d6ffac;
+    -fx-background-radius: 0;
+    -fx-pref-width: 75px;
+    -fx-pref-height: 35px;
+    -fx-padding: 0 0 0 5;
+}
+
+.guessFieldGTC .button {
+    -fx-border-color: #282828 #282828 #282828 transparent;
+    -fx-border-width: 2;
+    
+    -fx-background-color: #a7c686;
+    -fx-background-radius: 0;
+    
+    -fx-pref-width: 75px;
+    -fx-pref-height: 35px;
+    
+    -fx-text-fill: #282828;
+    -fx-font-weight: bold;
+    -fx-font-size: 12;
+}
+
+.btn-rendire {
+    -fx-padding: 12;
+    -fx-text-fill: #282828;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-background-color: #ef8184;
+    -fx-background-radius: 16;
+}
+
+.btn-siguiente {
+    -fx-padding: 12;
+    -fx-text-fill: #282828;
+    -fx-font-weight: bold;
+    -fx-font-size: 16;
+    -fx-background-color: #ccf3a4;
+    -fx-background-radius: 16;
+}
