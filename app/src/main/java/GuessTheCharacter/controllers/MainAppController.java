@@ -89,7 +89,7 @@ public class MainAppController implements Initializable {
         imgGTC.setImage(new Image(personajeActual.getImage().medium_url()));
         imgGTC.setFitHeight(220);
         imgGTC.setFitWidth(220);
-        imgGTC.setBlurFactor(40);
+        imgGTC.setBlurFactor(41);
         StringBuilder sb = new StringBuilder(personajeActual.getName());
         personajeActual.getAliasesList().forEach(alias -> {
             sb.append("/"+alias);
@@ -110,6 +110,7 @@ public class MainAppController implements Initializable {
                         fallarIntento();
                     }
                     añadirFallo();
+                    this.imgGTC.decrecerBlur();
                 }
                 guessFieldGTC.getTextField().clear();
             }
